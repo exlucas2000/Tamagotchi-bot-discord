@@ -1,0 +1,1 @@
+# Tamagotchi-bot-discord
