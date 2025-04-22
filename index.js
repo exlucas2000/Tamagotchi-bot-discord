@@ -8,7 +8,7 @@ function initAnimal(userId, name, animalType) { animalData[userId] = { nom: name
 
 client.on('messageCreate', async (message) => { if (!message.content.startsWith('+') && !message.content.startsWith('?')) return; const args = message.content.slice(1).split(/ +/); const command = args.shift().toLowerCase(); const userId = message.author.id;
 
-if (command === 'acheter-animal') { const nom = args[0]; if (!nom) return message.reply("Tu dois choisir un nom d'animal !"); const animal = animalsList.find(a => a.name.toLowerCase() === nom.toLowerCase()); if (!animal) return message.reply("Animal introuvable. Utilise +liste-animal pour voir les animaux disponibles."); initAnimal(userId, nom, animal); return message.reply(Tu as adopté un ${nom} (${animal.prix === 0 ? 'gratuit' : animal.prix + ' pièces'}) !); }
+if (command === 'acheter-animal') { const nom = args[0]; if (!nom) return message.reply("Tu dois choisir un nom d'animal !"); const animal = animalsList.find(a => a.name.toLowerCase() === nom.toLowerCase()); if (!animal) return message.reply("Animal introuvable. Utilise +liste-animal pour voir les animaux disponibles."); initAnimal(userId, nom, animal); return message.reply(`Tu as adopté un ${nom} (${animal.prix === 0 ? 'gratuit' : animal.prix + ' pièces'`}) !); }
 
 if (command === 'liste-animal') { const list = animalsList.map(a => ${a.name} (${a.prix} pièces, santé ${a.sante})).join('\n'); return message.reply('Liste des animaux disponibles :\n' + list); }
 
